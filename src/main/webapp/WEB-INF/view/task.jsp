@@ -1,45 +1,31 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: primi
-  Date: 22.07.2021
-  Time: 11:15
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-    <title>Task_Name</title>
+    <title>${task.name}</title>
+    <jsp:include page="bootstrap.jsp"/>
 </head>
 <body>
-<div>
+<div class="container">
     <jsp:include page="header.jsp"/>
     <c:set value="${task}" var="task"/>
 
-    <c:out value="${task.name}"/>
-    <c:out value="${task.description}"/>
+    <h3><c:out value="${task.name}"/></h3>
+    <p><c:out value="${task.description}"/></p>
 
-    <a href="change/${task.id}">change task</a>
+    <a href="change/${task.id}" role="button" class="btn btn-dark">Change task</a>
 
-    <%--    <a href="/task/delete/${task.id}" onclick="return confirm('Are you sure?')" >Delete</a>--%>
     <form:form method="post" action="/task/delete/${task.id}">
-        <button type="submit">Delete</button>
+        <button type="submit" class="btn btn-dark">Delete</button>
     </form:form>
-    <%--    <form:form method="post"--%>
-
-    <h1>task name</h1>
-    <p>description</p>
-    <p>table with times(everyone time also has description)</p>
-    <p>sum time</p>
-    <%--    <button>start/stop</button>--%>
 
     <form:form method="post" action="/task/start/${task.id}">
-        <button type="submit">Start</button>
+        <button type="submit" class="btn btn-success">Start</button>
     </form:form>
     <form:form method="post" action="/task/stop/${task.id}">
-        <button type="submit">Stop</button>
+        <button type="submit" class="btn btn-danger">Stop</button>
     </form:form>
 
     <h1>Time spent</h1>

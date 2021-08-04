@@ -9,35 +9,40 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Регистрация медицинского работника</title>
-<%--    <jsp:include page="bootstrap.jsp"/>--%>
+    <title>Registration</title>
+    <jsp:include page="bootstrap.jsp"/>
 </head>
 <body>
+<div class="container mb-5">
 
-<%--<jsp:include page="header.jsp"/>--%>
-<div class=" position-relative mt-5 mb-5 start-50 translate-middle-x" style="max-width: 500px">
+    <jsp:include page="header.jsp"/>
 
-    <div class="row g-3">
-        <form:form method="POST" modelAttribute="userForm">
-            <h2>Регистрация</h2>
+    <div class="position-relative start-50 top-50 translate-middle-x" style="max-width: 400px">
+        <main class="form-signin mt-4 ">
 
-            <label class="form-label">Логин</label>
-            <form:input type="text" path="username" placeholder="Логин"
-                        cssClass="form-control mb-3"/>
+        <form:form method="POST" modelAttribute="userForm" class="row mx-5 g-2">
+
+            <h4 class="h4 mb-2 fw-normal">Registration</h4>
+
+            <label>Login</label>
+            <form:input type="text" path="username" autofocus="true" placeholder="Login"
+                        cssClass="form-control"/>
             <form:errors path="username"/>
             ${usernameError}
 
-            <label class="form-label">Пароль</label>
-            <form:input type="password" path="password" placeholder="Пароль" cssClass="form-control mb-3"/>
+            <label>Password</label>
+            <form:input type="password" path="password" placeholder="Password" cssClass="form-control"/>
 
-            <label class="form-label">Повторите пароль</label>
+            <label>Confirm password</label>
             <form:input type="password" path="passwordConfirm"
-                        placeholder="Повторите пароль" cssClass="form-control mb-3"/>
+                        placeholder="Confirm password" cssClass="form-control"/>
             <form:errors path="password"/>
             ${passwordError}
 
-            <button type="submit" class="btn btn-primary mb-3">Зарегистрироваться</button>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Registration</button>
         </form:form>
+
+        </main>
     </div>
 </div>
 <%--<jsp:include page="footer.jsp"/>--%>

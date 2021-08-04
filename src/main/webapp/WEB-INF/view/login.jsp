@@ -8,8 +8,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Войти</title>
-<%--    <jsp:include page="/WEB-INF/view/bootstrap.jsp"/>--%>
+    <title>Login</title>
+    <jsp:include page="/WEB-INF/view/bootstrap.jsp"/>
 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
@@ -27,7 +27,10 @@
 </sec:authorize>
 
 <div class="container mb-5">
-    <div class=" position-relative start-50 top-50 translate-middle-x" style="max-width: 400px">
+
+    <jsp:include page="header.jsp"/>
+
+    <div class="position-relative start-50 top-50 translate-middle-x" style="max-width: 400px">
 
         <main class="form-signin mt-4 ">
 
@@ -39,26 +42,26 @@
                             <use xlink:href="#exclamation-triangle-fill"/>
                         </svg>
                         <div>
-                            Неправильный логин или пароль.
+                            Incorrect login or password.
                         </div>
                     </div>
                 </c:if>
 
-                <h4 class="h4 mb-2 fw-normal">Пожалуйста войдите</h4>
+                <h4 class="h4 mb-2 fw-normal">Login</h4>
 
-                <label for="floatingInput">Логин</label>
+                <label for="floatingInput">Login</label>
                 <input name="username" type="text" class="form-control" autofocus="true" id="floatingInput"
-                       placeholder="Логин">
+                       placeholder="Login">
 
-                <label for="floatingPassword">Пароль</label>
-                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Пароль">
+                <label for="floatingPassword">Password</label>
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
 
-                <p>remember me</p>
-                <input type="checkbox" name="remember-me" />
+                <p><input type="checkbox" name="remember-me"/> Remember me</p>
 
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
 
-                <a href="/registration" align="center">Зарегистрироваться</a>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+
+                <a href="/registration" align="center">Registration</a>
 
             </form:form>
 
